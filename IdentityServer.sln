@@ -1,0 +1,60 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33205.214
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityServer.AuthServer", "IdentityServer.AuthServer\IdentityServer.AuthServer.csproj", "{81268C3A-8B3F-476E-AEC0-C0784268F414}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityServer.Client1", "IdentityServer.Client1\IdentityServer.Client1.csproj", "{DE85AA38-A5A6-440E-99EE-B5D0C7961127}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityServer.Client2", "IdentityServer.Client2\IdentityServer.Client2.csproj", "{80153227-646A-4BB2-A515-DD2A1486442B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityServer.Api1", "IdentityServer.Api1\IdentityServer.Api1.csproj", "{750C9583-86F9-4BAA-A083-45382300EBA4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityServer.Api2", "IdentityServer.Api2\IdentityServer.Api2.csproj", "{A5E04FA5-1478-4AEA-8E5B-0B6659CD53FD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityServer.Api3", "IdentityServer.Api3\IdentityServer.Api3.csproj", "{1E7CDEA3-FCD4-4408-9D06-69E311874179}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{3C53C397-33E8-4863-AE8D-D4B4AC0CD91C}"
+	ProjectSection(SolutionItems) = preProject
+		Ports.txt = Ports.txt
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{81268C3A-8B3F-476E-AEC0-C0784268F414}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81268C3A-8B3F-476E-AEC0-C0784268F414}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81268C3A-8B3F-476E-AEC0-C0784268F414}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81268C3A-8B3F-476E-AEC0-C0784268F414}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE85AA38-A5A6-440E-99EE-B5D0C7961127}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE85AA38-A5A6-440E-99EE-B5D0C7961127}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE85AA38-A5A6-440E-99EE-B5D0C7961127}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE85AA38-A5A6-440E-99EE-B5D0C7961127}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80153227-646A-4BB2-A515-DD2A1486442B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80153227-646A-4BB2-A515-DD2A1486442B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80153227-646A-4BB2-A515-DD2A1486442B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80153227-646A-4BB2-A515-DD2A1486442B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{750C9583-86F9-4BAA-A083-45382300EBA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{750C9583-86F9-4BAA-A083-45382300EBA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{750C9583-86F9-4BAA-A083-45382300EBA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{750C9583-86F9-4BAA-A083-45382300EBA4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A5E04FA5-1478-4AEA-8E5B-0B6659CD53FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5E04FA5-1478-4AEA-8E5B-0B6659CD53FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5E04FA5-1478-4AEA-8E5B-0B6659CD53FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5E04FA5-1478-4AEA-8E5B-0B6659CD53FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E7CDEA3-FCD4-4408-9D06-69E311874179}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E7CDEA3-FCD4-4408-9D06-69E311874179}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E7CDEA3-FCD4-4408-9D06-69E311874179}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E7CDEA3-FCD4-4408-9D06-69E311874179}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {29C98FAD-2993-4BA9-8C22-2FB498AE5FA3}
+	EndGlobalSection
+EndGlobal

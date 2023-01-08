@@ -1,0 +1,8 @@
+AuthServer -> https://localhost:7059
+
+Client1 -> https://localhost:7100
+Client2 -> https://localhost:7058
+
+Api1 -> https://localhost:7048
+Api2 -> https://localhost:7076
+Api3 -> https://localhost:7123
