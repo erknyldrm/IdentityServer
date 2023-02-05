@@ -1,0 +1,12 @@
+﻿@using IdentityServer.Client1.Models;
+
+@model List<Product>
+@{
+    ViewData["Title"] = "Products";
+}
+<h1>@ViewData["Title"]</h1>
+
+@foreach (var product in Model)
+{
+    <div>@product.Name</div> @Environment.NewLine;
+}

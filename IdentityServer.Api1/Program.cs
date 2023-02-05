@@ -12,8 +12,22 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, opt =>
     {
         opt.Authority = "https://localhost:7059";
-        opt.Audience= "resource_api1";
-    }); 
+        opt.Audience = "resource_api1";
+    });
+
+builder.Services.AddAuthorization(opt =>
+{
+    opt.AddPolicy("ReadProduct", conf =>
+    {
+        conf.RequireClaim("scope", "api1.read");
+    });
+
+    opt.AddPolicy("CreateOrUpdate", conf =>
+    {
+        conf.RequireClaim("scope", new[] { "api1.create", "api1.update" });
+    });
+});
+
 
 var app = builder.Build();
 
@@ -26,7 +40,6 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();

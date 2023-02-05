@@ -7,8 +7,15 @@ namespace IdentityServer.AuthServer
         public static IEnumerable<ApiResource> GetApiResources() =>
             new List<ApiResource>()
             {
-                new ApiResource("resource_api1") { Scopes = { "api1.read", "api1.write", "api1.update" }},
-                new ApiResource("resource_api2") { Scopes = { "api2.read", "api2.write", "api2.update" }}
+                new ApiResource("resource_api1")
+                {
+                    Scopes = { "api1.read", "api1.write", "api1.update" },
+                    ApiSecrets = new[]{ new Secret("secretapi1".Sha256())},
+                },
+                new ApiResource("resource_api2") { 
+                    Scopes = { "api2.read", "api2.write", "api2.update" },
+                    ApiSecrets = new[]{ new Secret("secretapi2".Sha256())},
+                }
             };
 
         public static IEnumerable<ApiScope> GetApiScopes() =>
@@ -28,10 +35,10 @@ namespace IdentityServer.AuthServer
             new Client()
             {
                 ClientId = "Client1",
-                ClientName = "Client 1 App",  
+                ClientName = "Client 1 App",
                 ClientSecrets = new List<Secret>() { new Secret("secret".Sha256()) },
                 AllowedGrantTypes = GrantTypes.ClientCredentials,
-                AllowedScopes= { "api1.read" }   
+                AllowedScopes= { "api1.read" }
             },
             new Client()
             {
@@ -39,7 +46,7 @@ namespace IdentityServer.AuthServer
                 ClientName = "Client 2 App",
                 ClientSecrets = new List<Secret>() { new Secret("secret".Sha256()) },
                 AllowedGrantTypes = GrantTypes.ClientCredentials,
-                AllowedScopes= { "api1.read", "api2.write", "api2.update" }
+                AllowedScopes= { "api1.read", "api1.update", "api2.write", "api2.update" }
             }
         };
     }
