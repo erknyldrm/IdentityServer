@@ -3,6 +3,21 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddRazorPages();
 
+builder.Services.AddAuthentication(opt =>
+    {
+        opt.DefaultScheme = "Cookies";
+        opt.DefaultChallengeScheme = "oidc";
+    }
+).AddCookie("Cookies")
+ .AddOpenIdConnect("oidc", opt =>
+{
+    opt.SignInScheme = "Cookies";
+    opt.Authority = "https://localhost:7059";
+    opt.ClientId = "Client1-Mvc";
+    opt.ClientSecret = "secret";
+    opt.ResponseType = "code id_token";
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
