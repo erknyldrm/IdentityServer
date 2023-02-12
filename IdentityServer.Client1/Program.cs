@@ -16,7 +16,12 @@ builder.Services.AddAuthentication(opt =>
     opt.ClientId = "Client1-Mvc";
     opt.ClientSecret = "secret";
     opt.ResponseType = "code id_token";
+    opt.GetClaimsFromUserInfoEndpoint = true;
+    opt.SaveTokens = true;
+    opt.Scope.Add("api1.read");
+    opt.Scope.Add("offline_access");
 });
+
 
 var app = builder.Build();
 
@@ -33,6 +38,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapRazorPages();

@@ -54,11 +54,18 @@ namespace IdentityServer.AuthServer
             new Client()
             {
                 ClientId = "Client1-Mvc",
+                RequirePkce= false,
                 ClientName = "Client 1 Mvc App",
                 ClientSecrets = new List<Secret>() { new Secret("secret".Sha256()) },
                 AllowedGrantTypes = GrantTypes.Hybrid,
-                RedirectUris = new List<string>() { "https://localhost:7100/sign-oidc" },
-                AllowedScopes= { IdentityServerConstants.StandardScopes.OpenId, IdentityServerConstants.StandardScopes.Profile }
+                RedirectUris = new List<string>() { "https://localhost:7100/signin-oidc" },
+                PostLogoutRedirectUris =new List<string> { "https://localhost:7100/signout-callback-oidc" },
+                AllowedScopes= { IdentityServerConstants.StandardScopes.OpenId, IdentityServerConstants.StandardScopes.Profile, "api1.read", IdentityServerConstants.StandardScopes.OfflineAccess },
+                AccessTokenLifetime = 7200,
+                AllowOfflineAccess= true,
+                RefreshTokenUsage = TokenUsage.OneTimeOnly,
+                RefreshTokenExpiration = TokenExpiration.Absolute,
+                SlidingRefreshTokenLifetime = (int)(DateTime.UtcNow.AddDays(60) - DateTime.UtcNow).TotalSeconds
             }
         };
 
