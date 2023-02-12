@@ -1,10 +1,33 @@
 using IdentityServer.AuthServer;
+using IdentityServer.AuthServer.Models;
+using IdentityServer.AuthServer.Seed;
+using IdentityServer4.EntityFramework.DbContexts;
+using Microsoft.EntityFrameworkCore;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+
+builder.Services.AddDbContext<CustomDbContext>(opt =>
+{
+    opt.UseSqlServer(builder.Configuration.GetConnectionString("LocalDb"));
+});
+
+var assemblyName = typeof(Program).GetTypeInfo().Assembly.GetName().Name;
+
 builder.Services.AddIdentityServer()
+    .AddConfigurationStore(config =>
+    {
+        config.ConfigureDbContext = c => c.UseSqlServer(builder.Configuration.GetConnectionString("LocalDb"),
+            sqlOpt => sqlOpt.MigrationsAssembly(assemblyName));
+    })
+    .AddOperationalStore(config =>
+    {
+        config.ConfigureDbContext = c => c.UseSqlServer(builder.Configuration.GetConnectionString("LocalDb"),
+            sqlOpt => sqlOpt.MigrationsAssembly(assemblyName));
+    })
     .AddInMemoryApiResources(Config.GetApiResources())
     .AddInMemoryApiScopes(Config.GetApiScopes())
     .AddInMemoryClients(Config.GetClients())
@@ -13,6 +36,16 @@ builder.Services.AddIdentityServer()
     .AddDeveloperSigningCredential();
 
 var app = builder.Build();
+
+using (var serviceScope = app.Services.CreateScope())
+{
+    var services = serviceScope.ServiceProvider;
+
+    var context = services.GetRequiredService<ConfigurationDbContext>();
+
+    IdentityServerSeedData.Seed(context);
+}
+
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
